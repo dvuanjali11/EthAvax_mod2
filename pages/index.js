@@ -87,39 +87,6 @@ export default function HomePage() {
       setOwnerName("Anjali");
     }
   }
-
-  /*const addition = async () => {
-      if (atm) {
-        const a = parseInt(inputA);
-        const b = parseInt(inputB);
-        const answer = await atm.addition(a,b);
-        setAdd(answer);
-      }
-  }  
-  const subtraction = async () => {
-    if (atm) {
-      const a = parseInt(inputA);
-      const b = parseInt(inputB);
-      const answer = await atm.substraction(a,b);
-      setSub(answer);
-    }
-  }
-  const multiplication = async () => {
-    if (atm) {
-      const a = parseInt(inputA);
-      const b = parseInt(inputB);
-      const answer = await atm.multiplication(a,b);
-      setMult(answer);
-    }
-  }
-  const handleInputAChange = (event) => {
-    setInputA(event.target.value);
-  };
-
-  const handleInputBChange = (event) => {
-    setInputB(event.target.value);
-  };
-*/
   
   const initUser = () => {
     // Check to see if user has Metamask
