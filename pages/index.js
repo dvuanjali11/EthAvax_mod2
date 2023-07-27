@@ -7,7 +7,7 @@ export default function HomePage() {
   const [account, setAccount] = useState(undefined);
   const [atm, setATM] = useState(undefined);
   const [balance, setBalance] = useState(undefined);
-  const [ownerName, setOwnerName] = useState(undefined);
+  const [result, setResult]=  useState(undefined);
 
 
   
@@ -59,6 +59,24 @@ export default function HomePage() {
 
     setATM(atmContract);
   }
+  const getResult= async()=> {
+    if(atm){
+      setResult((await atm.getResult()).toNumber());
+    }
+  }
+  
+  const multiplication = async() =>{
+    if(atm){
+      let tx = await atm.multiplication(3,5);
+      await tx.await();
+      getResult();
+    }
+  }
+
+  if(result==undefined)
+  {
+    getResult();
+  }
 
   const getBalance = async() => {
     if (atm) {
@@ -81,13 +99,7 @@ export default function HomePage() {
       getBalance();
     }
   }
-  const checkOwner = async () => {
-    if (atm) {
-      let owner = await atm.checkOwner();
-      setOwnerName("Anjali");
-    }
-  }
-  
+ 
   const initUser = () => {
     // Check to see if user has Metamask
     if (!ethWallet) {
@@ -103,12 +115,14 @@ export default function HomePage() {
       getBalance();
     }
 
+    
+
     return (
       <>
         <div>
           <p style={{ fontFamily: "Sans-serif" }}>Your Account: {account}</p>
           <p style={{ fontFamily: "Sans-serif" }}>Your Balance: {balance}</p>
-          <p style={{ fontFamily: "Sans-serif" }}>Owner Name: {ownerName}</p>
+          <p style={{ fontFamily: "Sans-serif" }}>Result: {result}</p>
   
           <button style={{ backgroundColor: "#cyan" }} onClick={deposit}>
             Deposit 1 ETH
@@ -116,8 +130,8 @@ export default function HomePage() {
           <button style={{ backgroundColor: "yellow" }} onClick={withdraw}>
             Withdraw 1 ETH
           </button>
+          <button style={{backgroundColor: "blue"}} onClick={multiplication}>Multiply 2 numbers</button>
         </div>
-  
         
       </>
     );
@@ -126,7 +140,6 @@ export default function HomePage() {
 
   useEffect(() => {
     getWallet();
-    checkOwner();
   }, []);
 
   return (
