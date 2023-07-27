@@ -11,7 +11,7 @@ The Crypto ATM component provides the following features:
 - View user's account balance
 - Deposit ETH into the ATM
 - Withdraw ETH from the ATM
-- Check the owner's name
+- Multiply 2 number
 
 Please note that the component assumes you have set up and configured MetaMask in your browser.
 
