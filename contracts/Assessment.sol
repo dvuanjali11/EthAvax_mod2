@@ -4,12 +4,12 @@ pragma solidity ^0.8.16;
 //import "hardhat/console.sol";
 
 contract Assessment {
-    address payable public owner;
+
     uint256 public balance;
-    // uint public b=5;
     event Deposit(uint256 amount);
     event Withdraw(uint256 amount);
-    
+    event multiply(uint256 _first, uint256 _second);
+    uint256 public result;
 
 
     constructor(uint initBalance) payable {
@@ -60,8 +60,13 @@ contract Assessment {
         emit Withdraw(_withdrawAmount);
     }
 
-    function checkOwner()public pure returns(string memory){
-        string memory name="Anjali";
-        return name;
+    function getResult() public view returns (uint256)
+    {
+        return result;
+    }
+
+    function multiplication (uint256 _first, uint256 _second) public{
+        result= _first * _second;
+        emit multiply (_first, _second);
     }
 }
