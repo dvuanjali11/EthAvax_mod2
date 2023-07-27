@@ -1,6 +1,6 @@
 # ETH ATM
 
-This is a very simple ETH ATM application. It allows users to connect their MetaMask wallet, view their account balance, deposit and withdraw ETH and check the owner's name.
+This is a very simple ETH ATM application. It allows users to connect their MetaMask wallet, view their account balance, deposit and withdraw ETH , check the owner's name and multiply two numbers.
 
 ## Features
 
